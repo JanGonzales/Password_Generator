@@ -51,9 +51,10 @@ elif User_var_duplicate == "n":
         if numbers[x] not in Generated_Password_numbers:
             Generated_Password_numbers.append(numbers[x])
     Generated_Password = Generated_Password_letters + Generated_Password_numbers + Generated_Password_symbols
+    random_list = Generated_Password_letters + Generated_Password_numbers + Generated_Password_symbols
 
 if User_var_random == "y":
-    for items in random_list:  #randomised
+    for items in random_list:  #randomisedy
         result += str(items)
 
 elif User_var_random == "n":
@@ -62,4 +63,4 @@ elif User_var_random == "n":
 else:
     print("Unknown Input, please run script again")
 
-print(result)
+print(f"your password is\n{result}")
