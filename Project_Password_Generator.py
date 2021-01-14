@@ -8,8 +8,8 @@ numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
 print("Welcome to the PyPassword Generator!")
-User_var_random = input("Do you want your password randomised y/N: ").lower()
-User_var_duplicate = input("Do you want duplicates on your password or not: Y = Duplicates N = No Duplicates: ").lower()
+User_var_random = input("Do you want your password randomised y/N:\n").lower()
+User_var_duplicate = input("Do you want your password to contain duplicates: Y = Duplicates N = No Duplicates:\n").lower()
 nr_letters = int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
@@ -33,6 +33,9 @@ if User_var_duplicate == "y":
     for number in range(0, nr_numbers):
         x = random.randint(0, len(numbers) - 1)
         Generated_Password.append(numbers[x])
+    while len(random_list) < len(Generated_Password):
+        x = random.randint(0, len(Generated_Password) - 1)
+        random_list.append(Generated_Password[x])
 
 elif User_var_duplicate == "n":
     while len(Generated_Password_letters) < nr_letters:
@@ -47,12 +50,7 @@ elif User_var_duplicate == "n":
         x = random.randint(0, len(numbers) - 1)
         if numbers[x] not in Generated_Password_numbers:
             Generated_Password_numbers.append(numbers[x])
-
-Generated_Password = Generated_Password_letters + Generated_Password_numbers + Generated_Password_symbols
-while len(random_list) < len(Generated_Password):
-    x = random.randint(0, len(Generated_Password) - 1)
-    if Generated_Password[x] not in random_list:
-        random_list.append(Generated_Password[x])
+    Generated_Password = Generated_Password_letters + Generated_Password_numbers + Generated_Password_symbols
 
 if User_var_random == "y":
     for items in random_list:  #randomised
