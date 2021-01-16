@@ -22,6 +22,7 @@ def main():
     Generated_Password_symbols = []
     Generated_Password_numbers = []
     result = " "
+    random_Password_length = []
     random_list = []
 
     if User_var_duplicate == "y":
@@ -53,8 +54,13 @@ def main():
             x = random.randint(0, len(numbers) - 1)
             if numbers[x] not in Generated_Password_numbers:
                 Generated_Password_numbers.append(numbers[x])
+
         Generated_Password = Generated_Password_letters + Generated_Password_numbers + Generated_Password_symbols
-        random_list = Generated_Password_letters + Generated_Password_numbers + Generated_Password_symbols
+        random_Password_length = Generated_Password_letters + Generated_Password_numbers + Generated_Password_symbols
+
+        for __ in range (0, len(random_Password_length) - 1):
+            random_list.append(random_Password_length[__])
+
 
     if User_var_random == "y":
         for items in random_list:  #randomisedy
