@@ -12,7 +12,7 @@ def main():
 
     print("Welcome to the PyPassword Generator!")
     User_var_random = input("Do you want your password randomised y/N:\n").lower()
-    User_var_duplicate = input("Do you want your password to contain duplicates: Y = Duplicates N = No Duplicates:\n").lower()
+    User_var_duplicate = input("Do you want your password to contain duplicates Y/N:\n").lower()
     nr_letters = int(input("How many letters would you like in your password?\n"))
     nr_symbols = int(input(f"How many symbols would you like?\n"))
     nr_numbers = int(input(f"How many numbers would you like?\n"))
@@ -37,6 +37,7 @@ def main():
         for number in range(0, nr_numbers):
             x = random.randint(0, len(numbers) - 1)
             Generated_Password.append(numbers[x])
+
         while len(random_list) < len(Generated_Password):
             x = random.randint(0, len(Generated_Password) - 1)
             random_list.append(Generated_Password[x])
@@ -46,21 +47,24 @@ def main():
             x = random.randint(0, len(letters) - 1)
             if letters[x] not in Generated_Password_letters:
                 Generated_Password_letters.append(letters[x])
+
         while len(Generated_Password_symbols) < nr_symbols:
             x = random.randint(0, len(symbols) - 1)
             if symbols[x] not in Generated_Password_symbols:
                 Generated_Password_symbols.append(symbols[x])
+
         while len(Generated_Password_numbers) < nr_numbers:
             x = random.randint(0, len(numbers) - 1)
             if numbers[x] not in Generated_Password_numbers:
                 Generated_Password_numbers.append(numbers[x])
 
+## choose random characters without duplicates, but does not randomised position
         Generated_Password = Generated_Password_letters + Generated_Password_numbers + Generated_Password_symbols
+## random position and random characters without duplicates
         random_Password_length = Generated_Password_letters + Generated_Password_numbers + Generated_Password_symbols
 
         for __ in range (0, len(random_Password_length) - 1):
             random_list.append(random_Password_length[__])
-
 
     if User_var_random == "y":
         for items in random_list:  #randomisedy
