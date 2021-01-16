@@ -68,15 +68,16 @@ def main():
 
     if User_var_random == "y":
         for items in random_list:  #randomisedy
-            result += str(items)
+            result += items
 
     elif User_var_random == "n":
         for items in Generated_Password:  #Not randomised
-            result += str(items)
+            result += items
     else:
         print("Unknown Input, please run script again")
 
-    print(f"your password is\n{result}\n")
+    print(f"your password is:{result}")
+    print(len(result)) # DEBUGGING
 
 while var_loop is not False:
     main()
