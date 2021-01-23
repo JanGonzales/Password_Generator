@@ -1,0 +1,4 @@
+Project_Password_Generator.spec
+dist/
+__pycache__/
+build/
